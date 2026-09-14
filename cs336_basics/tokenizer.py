@@ -170,13 +170,3 @@ class Tokenizer:
         token_str = token_bytes.decode('utf-8',errors="replace")#遇到不完整编码时产生替换字符而不是UnicodeDecodeError
         return token_str
 
-text = "low lower Hello, world!你好，世界！"
-
-
-if __name__ == "__main__":
-    mock_vocab = {i:bytes([i]) for i in range(256)}
-    mock_merges = []
-    tok = Tokenizer(mock_vocab, mock_merges, [])
-    res = tok.encode("low lower Hello, world!你好，世界！")
-    print(res)
-    print(tok.decode(res))
